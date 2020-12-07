@@ -74,5 +74,16 @@ describe('#PrimeNumberMultiplicationTable', () => {
       });
     });
   });
+
+  describe('updateAmount', () => {
+    test('when you update the amount it should return the new amount and change the amount', () => {
+      let numberOfPrimeNumbers = 0;
+      let updatedNumberOfPrimeNumbers = 0;
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers)
+    
+      expect(testMultiplicationTable.updateAmount(updatedNumberOfPrimeNumbers)).toEqual(updatedNumberOfPrimeNumbers);
+      expect(testMultiplicationTable.amount).toEqual(updatedNumberOfPrimeNumbers);
+    });
+  });
   
 });
