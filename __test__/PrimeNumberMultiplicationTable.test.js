@@ -100,8 +100,8 @@ describe('#PrimeNumberMultiplicationTable', () => {
   });
   
   describe('multiply', () => {
-    test('when you update the amount it should return the new amount and change the amount', () => {
-      expect(testMultiplicationTable.multiply()).toEqual([[4, 6], [9]]);
+    test('it should return an array with arrays with the multiplications of the prime numbers', () => {
+      expect(testMultiplicationTable.multiply()).toEqual([[4, 6], [6, 9]]);
     });
 
   });
