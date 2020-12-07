@@ -36,5 +36,12 @@ describe('#PrimeNumberMultiplicationTable', () => {
     
       expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
     });
+
+    test('EDGE CASE: it should return "Error, Not a valid input" when 0 or less is passed as a variable', () => {
+      let numberOfPrimeNumbers = 0;
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers)
+    
+      expect(testMultiplicationTable.primeNumbers()).toEqual("Error, Not a valid input");
+    });
   });
 });
