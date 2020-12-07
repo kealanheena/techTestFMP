@@ -135,5 +135,21 @@ describe('#PrimeNumberMultiplicationTable', () => {
 
       expect(testMultiplicationTable.display(mockGeneratePrimeNumbers, mockMultiply)).toEqual(" | 2 | 3\n 2 | 4 | 6\n 3 | 6 | 9")
     });
+
+    test('the display function should return a string with \\n between each row for line breaks', () => {
+      testMultiplicationTable.primeNumberArray = [2];
+      testMultiplicationTable.multiplicationTableArray = [[4]];
+
+      expect(testMultiplicationTable.display(mockGeneratePrimeNumbers, mockMultiply)).toEqual(" | 2\n 2 | 4")
+    });
+
+    test('the display function should return a string with \\n between each row for line breaks', () => {
+      testMultiplicationTable.primeNumberArray = [2, 3, 5];
+      testMultiplicationTable.multiplicationTableArray = [[4, 6, 10], [6, 9, 15], [10, 15, 25]];
+
+      expect(testMultiplicationTable.display(mockGeneratePrimeNumbers, mockMultiply)).toEqual(" | 2 | 3 | 5\n 2 | 4 | 6 | 10\n 3 | 6 | 9 | 15\n 5 | 10 | 15 | 25")
+    });
   });
 });
+
+// git commit -m"Refactor: add additonal test to cover more possibilities"
