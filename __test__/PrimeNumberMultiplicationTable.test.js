@@ -151,5 +151,3 @@ describe('#PrimeNumberMultiplicationTable', () => {
     });
   });
 });
-
-// git commit -m"Refactor: add additonal test to cover more possibilities"
