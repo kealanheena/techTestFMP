@@ -29,10 +29,16 @@ describe('#PrimeNumberMultiplicationTable', () => {
         expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5]);
       });
   
-      test('the first 8 prime numbers when 8 is passed', () => {
+      test('the first 10 prime numbers when 10 is passed', () => {
         let testMultiplicationTable = new PrimeNumberMultiplicationTable(10);
       
         expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+      });
+
+      test('the first 16 prime numbers when 16 is passed', () => {
+        let testMultiplicationTable = new PrimeNumberMultiplicationTable(16);
+      
+        expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]);
       });
 
     });
