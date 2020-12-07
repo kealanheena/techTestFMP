@@ -75,7 +75,7 @@ describe('#PrimeNumberMultiplicationTable', () => {
   
       test('EDGE CASE: it should return "Error, Not a valid input" when 0 or less is passed as a variable', () => {
         let numberOfPrimeNumbers = 0;
-        testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
+        testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers);
       
         expect(testMultiplicationTable.primeNumbers()).toEqual("Error, Not a valid input");
       });
@@ -88,6 +88,13 @@ describe('#PrimeNumberMultiplicationTable', () => {
 
       expect(testMultiplicationTable.updateAmount(numberOfPrimeNumbersUpdated)).toEqual(numberOfPrimeNumbersUpdated);
       expect(testMultiplicationTable.amount).toEqual(numberOfPrimeNumbersUpdated);
+    });
+
+    test('when you update the amount it should "Error, Not a valid input" when 0 or less is passed as a variable', () => {
+      numberOfPrimeNumbersUpdated = 0;
+      
+      expect(testMultiplicationTable.updateAmount(numberOfPrimeNumbersUpdated)).toEqual("Error, Not a valid input");
+      expect(testMultiplicationTable.amount).toEqual(numberOfPrimeNumbers);
     });
   });
   
