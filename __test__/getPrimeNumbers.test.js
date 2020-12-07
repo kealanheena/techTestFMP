@@ -9,9 +9,24 @@ describe('#PrimeNumberMultiplicationTable', () => {
   });
 
   test('prime numbers function should return a list of prime numbers', () => {
-    let testMultiplicationTable = new PrimeNumberMultiplicationTable(2)
+    let testMultiplicationTable = new PrimeNumberMultiplicationTable(1)
   
-    expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
+    expect(testMultiplicationTable.primeNumbers()).toBeInstanceOf(Array);
+  });
+
+  describe('prime numbers function should return', () => {
+
+    test('the first 2 prime numbers when 2 is passed', () => {
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(2);
+    
+      expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
+    });
+
+    test('the first 2 prime numbers when 2 is passed', () => {
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(3);
+    
+      expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5]);
+    });
   });
   
   describe('the length of the list of prime numbers should be equal to',() => {
