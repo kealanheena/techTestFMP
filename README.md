@@ -51,7 +51,9 @@ $ npm test
 
 ## What I'm pleased with
 
-
+I'm quite please with what I've learned over the course of this challenge having found out about the Sieve of Eratoshenes. 
+I didn't know about this algorithm whenn I started this challenge and it definitely helped me significantly with it and I also learned something new which is always a plus.
+It also helped me reduce a O of n squared function to be O of n which I'm quite proud of
 
 ## What I'd do with more time
 
