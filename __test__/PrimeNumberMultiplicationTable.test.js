@@ -5,8 +5,8 @@ describe('#PrimeNumberMultiplicationTable', () => {
   let testMultiplicationTable, numberOfPrimeNumbers, numberOfPrimeNumbersUpdated;
 
   beforeEach(() => {
-    numberOfPrimeNumbers = 1;
-    testMultiplicationTable = new PrimeNumberMultiplicationTable(1);
+    numberOfPrimeNumbers = 2;
+    testMultiplicationTable = new PrimeNumberMultiplicationTable(2);
   });
 
   describe('#primeNumbers', () => {
@@ -20,10 +20,7 @@ describe('#PrimeNumberMultiplicationTable', () => {
   
     describe('prime numbers function should return', () => {
   
-      test('the first 2 prime numbers when 2 is passed', () => {
-        numberOfPrimeNumbers = 2;
-        testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
-      
+      test('the first 2 prime numbers when 2 is passed', () => {      
         expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
       });
   
@@ -102,4 +99,10 @@ describe('#PrimeNumberMultiplicationTable', () => {
     });
   });
   
+  describe('multiply', () => {
+    test('when you update the amount it should return the new amount and change the amount', () => {
+      expect(testMultiplicationTable.multiply()).toEqual([[4, 6], [9]]);
+    });
+
+  });
 });
