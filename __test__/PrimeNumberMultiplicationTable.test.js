@@ -109,7 +109,7 @@ describe('#PrimeNumberMultiplicationTable', () => {
     test('it should return 3 arrays with arrays with the multiplications of the prime numbers when 3 is passed', () => {
       let numberOfPrimeNumbers = 3;
       testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers);
-      testMultiplicationTable.primeNumberArray = [2, 3, 5]
+      testMultiplicationTable.primeNumberArray = [2, 3, 5];
 
       expect(testMultiplicationTable.multiply()).toEqual([[4, 6, 10], [6, 9, 15], [10, 15, 25]]);
     });
@@ -120,11 +120,20 @@ describe('#PrimeNumberMultiplicationTable', () => {
     const mockGeneratePrimeNumbers = jest.fn();
     const mockMultiply = jest.fn();
 
-    test('it should return 3 arrays with arrays with the multiplications of the prime numbers when 3 is passed', () => {
+    test('the display function should call "mockGeneratePrimeNumbers" and "mockMultiply"', () => {
+      testMultiplicationTable.primeNumberArray = [2];
+      testMultiplicationTable.multiplicationTableArray = [[4]];
       testMultiplicationTable.display(mockGeneratePrimeNumbers, mockMultiply)
-
+      
       expect(mockGeneratePrimeNumbers.mock.calls.length).toEqual(1);
       expect(mockMultiply.mock.calls.length).toEqual(1);
+    });
+
+    test('the display function should return a string with \\n between each row for line breaks', () => {
+      testMultiplicationTable.primeNumberArray = [2, 3];
+      testMultiplicationTable.multiplicationTableArray = [[4, 6], [6, 9]];
+
+      expect(testMultiplicationTable.display(mockGeneratePrimeNumbers, mockMultiply)).toEqual(" | 2 | 3\n 2 | 4 | 6\n 3 | 6 | 9")
     });
   });
 });
