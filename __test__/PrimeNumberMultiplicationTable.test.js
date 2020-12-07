@@ -9,40 +9,40 @@ describe('#PrimeNumberMultiplicationTable', () => {
     testMultiplicationTable = new PrimeNumberMultiplicationTable(2);
   });
 
-  describe('#primeNumbers', () => {
+  describe('#generatePrimeNumbers', () => {
     test('prime numbers function should return a list of prime numbers', () => {  
-      expect(testMultiplicationTable.primeNumbers).toBeInstanceOf(Function);
+      expect(testMultiplicationTable.generatePrimeNumbers).toBeInstanceOf(Function);
     });
   
     test('prime numbers function should return a list of prime numbers', () => {
-      expect(testMultiplicationTable.primeNumbers()).toBeInstanceOf(Array);
+      expect(testMultiplicationTable.generatePrimeNumbers()).toBeInstanceOf(Array);
     });
   
     describe('prime numbers function should return', () => {
   
       test('the first 2 prime numbers when 2 is passed', () => {      
-        expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
+        expect(testMultiplicationTable.generatePrimeNumbers()).toEqual([2, 3]);
       });
   
       test('the first 3 prime numbers when 3 is passed', () => {
         numberOfPrimeNumbers = 3;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5]);
+        expect(testMultiplicationTable.generatePrimeNumbers()).toEqual([2, 3, 5]);
       });
   
       test('the first 10 prime numbers when 10 is passed', () => {
         numberOfPrimeNumbers = 10;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+        expect(testMultiplicationTable.generatePrimeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
       });
 
       test('the first 16 prime numbers when 16 is passed', () => {
         numberOfPrimeNumbers = 16;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]);
+        expect(testMultiplicationTable.generatePrimeNumbers()).toEqual([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]);
       });
 
     });
@@ -53,21 +53,21 @@ describe('#PrimeNumberMultiplicationTable', () => {
         numberOfPrimeNumbers = 2;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+        expect(testMultiplicationTable.generatePrimeNumbers().length).toEqual(numberOfPrimeNumbers);
       });
   
       test('4 when 4 is passed as a variable', () => {
         let numberOfPrimeNumbers = 4;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+        expect(testMultiplicationTable.generatePrimeNumbers().length).toEqual(numberOfPrimeNumbers);
       });
   
       test('7 when 7 is passed as a variable', () => {
         let numberOfPrimeNumbers = 7;
         testMultiplicationTable.updateAmount(numberOfPrimeNumbers);
       
-        expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+        expect(testMultiplicationTable.generatePrimeNumbers().length).toEqual(numberOfPrimeNumbers);
       });
   
       test('EDGE CASE: it should throw an error "Error, Not a valid input" when 0 or less is passed as a variable', () => {
@@ -75,7 +75,7 @@ describe('#PrimeNumberMultiplicationTable', () => {
         testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers);
       
         expect(() => {
-          testMultiplicationTable.primeNumbers()
+          testMultiplicationTable.generatePrimeNumbers()
         }).toThrowError('Error, Not a valid input');
       });
     });
@@ -101,7 +101,17 @@ describe('#PrimeNumberMultiplicationTable', () => {
   
   describe('multiply', () => {
     test('it should return an array with arrays with the multiplications of the prime numbers', () => {
+      testMultiplicationTable.primeNumberArray = [2, 3]
+
       expect(testMultiplicationTable.multiply()).toEqual([[4, 6], [6, 9]]);
+    });
+
+    test('it should return an array with arrays with the multiplications of the prime numbers', () => {
+      let numberOfPrimeNumbers = 3;
+      testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers);
+      testMultiplicationTable.primeNumberArray = [2, 3, 5]
+
+      expect(testMultiplicationTable.multiply()).toEqual([[4, 6, 10], [6, 9, 15], [10, 15, 25]]);
     });
 
   });
