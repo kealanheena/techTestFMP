@@ -1,15 +1,26 @@
-// person.test.js
 const PrimeNumberMultiplicationTable = require('../lib/getPrimeNumbers');
 
-test('prime numbers function should return a list of prime numbers', () => {
-  let testMultiplicationTable = new PrimeNumberMultiplicationTable(2)
+describe('#PrimeNumberMultiplicationTable', () => {
+  test('prime numbers function should return a list of prime numbers', () => {
+    let testMultiplicationTable = new PrimeNumberMultiplicationTable(2)
+  
+    expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
+  });
+  
+  describe('the length of the list of prime numbers should be equal to',() => {
 
-  expect(testMultiplicationTable.primeNumbers()).toEqual([2, 3]);
-});
+    test('2 when 2 is passed as a variable', () => {
+      let numberOfPrimeNumbers = 2;
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers)
+    
+      expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+    });
 
-test('the length of the list of prime numbers should be equal to the number passed', () => {
-  let numberOfPrimeNumbers = 2;
-  let testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers)
-
-  expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+    test('4 when 4 is passed as a variable', () => {
+      let numberOfPrimeNumbers = 4;
+      let testMultiplicationTable = new PrimeNumberMultiplicationTable(numberOfPrimeNumbers)
+    
+      expect(testMultiplicationTable.primeNumbers().length).toEqual(numberOfPrimeNumbers);
+    });
+  });
 });
